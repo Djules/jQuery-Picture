@@ -26,7 +26,8 @@
 			ignorePixelRatio: false,
 			useLarger: false,
 			insertElement: '>a',
-			inlineDimensions: false
+			inlineDimensions: false,
+            imageSrcAttribute: 'src'
 
         };
 		
@@ -179,7 +180,7 @@
 
 				if(element.find('img').length == 0){
 
-					var prep = '<img src="' + sizes[currentMedia] + '"'
+					var prep = '<img ' + settings.imageSrcAttribute + '="' + sizes[currentMedia] + '"'
 					if(element.attr('style')) prep += ' style="' + element.attr('style') + '"';
 					if(element.attr('alt')) prep += ' alt="' + element.attr('alt') + '"';
 					prep += '>';
@@ -196,13 +197,13 @@
 
 				}else{
 					
-					element.find('img').attr('src', sizes[currentMedia]);
+					element.find('img').attr(settings.imageSrcAttribute, sizes[currentMedia]);
 
 				}
 
 				if(settings.inlineDimensions){
 
-					$("<img/>").attr("src", $('img', element).attr("src")).load(function(){
+					$("<img/>").attr(settings.imageSrcAttribute, $('img', element).attr(settings.imageSrcAttribute)).load(function(){
 						$('img', element).attr('height', this.height);
 						$('img', element).attr('width', this.width);
 				    });
@@ -240,7 +241,7 @@
 
 				if(element.find('img').length == 0){
 
-					var prep = '<img src="' + sizes[currentMedia] + '"';
+					var prep = '<img ' + settings.imageSrcAttribute + '="' + sizes[currentMedia] + '"';
 					if(element.attr('style')) prep += ' style="' + element.attr('style') + '"';
 					if(element.attr('title')) prep += ' alt="' + element.attr('title') + '"';
 					prep += '>';
@@ -257,13 +258,13 @@
 
 				}else{
 
-					$('img', element).attr('src', sizes[currentMedia]);
+					$('img', element).attr(settings.imageSrcAttribute, sizes[currentMedia]);
 
 				}
 
 				if(settings.inlineDimensions){
 
-					$("<img/>").attr("src", $('img', element).attr("src")).load(function(){
+					$("<img/>").attr(settings.imageSrcAttribute, $('img', element).attr(settings.imageSrcAttribute)).load(function(){
 						$('img', element).attr('height', this.height);
 						$('img', element).attr('width', this.width);
 				    });
