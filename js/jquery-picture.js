@@ -203,7 +203,7 @@
 
 				if(settings.inlineDimensions){
 
-					$("<img/>").attr(settings.imageSrcAttribute, $('img', element).attr(settings.imageSrcAttribute)).load(function(){
+					$("<img/>").attr("src", $('img', element).attr(settings.imageSrcAttribute)).load(function(){
 						$('img', element).attr('height', this.height);
 						$('img', element).attr('width', this.width);
 				    });
@@ -264,7 +264,7 @@
 
 				if(settings.inlineDimensions){
 
-					$("<img/>").attr(settings.imageSrcAttribute, $('img', element).attr(settings.imageSrcAttribute)).load(function(){
+					$("<img/>").attr("src", $('img', element).attr(settings.imageSrcAttribute)).load(function(){
 						$('img', element).attr('height', this.height);
 						$('img', element).attr('width', this.width);
 				    });
